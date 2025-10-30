@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery script tasks</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js">"</script>
+            <style>
+                body{font-family:Arial,sans-serif;margin:20px;}
+                p,ul,div{margin:10px 0;padding:10px}
+                p,ul li{color:#333;}
+                .box{width:100px;height:100px;background-color:#f4f4f4;}
+            </style>
+    </head>
+    <body>
+        <h2>append content</h2><p id="para">this is an existing paragraph.</p>
+<ul id="list">
+    <li>item 1</li>
+    <li>item 2</li>
+    </ul>
+    <button id="appendBtn">append content </button>
+    <h2>Animate element</h2><div class="box" id="animateBox"></div>
+    <button id="animateBtn">animate box </button>
+    <script>
+        $(document).ready(function(){
+            let itemCount=$('#list li').length;
+            $('#appendBtn').click(()=>{
+                itemCount++;
+                $('#para').append('appended text ${itemCount}.');
+                $('#list').append('<li>item $(itemCount)</li>');
+            });
+        });
+        $('#animateBtn').click(()=>{
+            $('#animateBox').css({width:'100px',height:'100px','background-color':'#f4f4f4'})
+            .animate({width:'150px',height:'150px'},500,function(){
+                $(this).css('background-color','lightblue');
+            });
+        });
+        </script>
+        </body>
+        </html>
+
+
